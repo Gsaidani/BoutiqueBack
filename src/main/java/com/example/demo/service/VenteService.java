@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -21,15 +22,20 @@ import com.example.demo.dao.VentesRepository;
 import com.example.demo.entities.ProduitVentes;
 import com.example.demo.entities.Ventes;
 
-@Service
+@Service("venteService")
 @Transactional
 public class VenteService implements IVenteService {
 
-	@Autowired
+	
 	private VentesRepository ventesRepository;
 	
 	
-	
+	@Autowired(required = true)
+	@Qualifier("venteService")
+	public void setVentesRepository(VentesRepository ventesRepository) {
+		this.ventesRepository = ventesRepository;
+	}
+
 	@Override
 	public Page<Ventes> getAllVentes(int idUser,int page, int size) {
 		Page<Ventes> listVentes=ventesRepository.findAllVentes(idUser,PageRequest.of(page, size) );

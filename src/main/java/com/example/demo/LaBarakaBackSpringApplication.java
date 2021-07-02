@@ -11,8 +11,6 @@ import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,9 +24,16 @@ import com.example.demo.entities.Ventes;
 import com.example.demo.service.ProduitService;
 import com.example.demo.service.UserConnexionService;
 import com.example.demo.service.VenteService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
-public class LaBarakaBackSpringApplication implements CommandLineRunner {
+//public class LaBarakaBackSpringApplication implements CommandLineRunner {
+public class LaBarakaBackSpringApplication extends SpringBootServletInitializer  {
+	
+	/*
 	@Autowired
 	private VentesRepository ventesRepository;
 	@Autowired
@@ -49,6 +54,11 @@ public class LaBarakaBackSpringApplication implements CommandLineRunner {
 	//Date d1= null;
 			//Date d2 = null;
 			EntityManager em = null;
+			*/
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder) {
+		        return applicationBuilder.sources(LaBarakaBackSpringApplication.class);
+		    }
 			
 	public static void main(String[] args) {
 		SpringApplication.run(LaBarakaBackSpringApplication.class, args);
@@ -58,10 +68,10 @@ public class LaBarakaBackSpringApplication implements CommandLineRunner {
 	public BCryptPasswordEncoder getBCPE(){
 		return new BCryptPasswordEncoder();
 	}
-
+	/*
 	@Override
 	public void run(String... args) throws Exception {	
-		/*
+		
 		userService.saveNewUser(new UserConnexion(
 				"test",
 				"test",
@@ -111,7 +121,8 @@ public class LaBarakaBackSpringApplication implements CommandLineRunner {
 
 		// entityManagerVentesRep.findVentesByDate(d1,
 		// d2).forEach(item->System.out.println(item));
-		}
+		//}
+
 	
 
 }

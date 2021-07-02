@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: LaBarakaBack_Spring
-Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Administrator
-Implementation-Vendor-Id: com.gs
-Build-Jdk: 1.8.0_211
-Implementation-URL: https://spring.io/projects/spring-boot/ws
-Created-By: Maven Integration for Eclipse
-
