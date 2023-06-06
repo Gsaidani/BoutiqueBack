@@ -30,7 +30,7 @@ public class UserConnexionRestService {
 	@RequestMapping(value="/user/modify/{id}", method=RequestMethod.PUT)
 	public UserConnexion modifyVente(@PathVariable int id,@RequestBody UserConnexion user ){
 		
-		connexionService.modifyVente(id, user);
+		// connexionService.modifyVente(id, user);
 		return connexionService.getUser(user.getIdentifiant(),user.getPassword());
 	}
 	
@@ -99,14 +99,15 @@ public class UserConnexionRestService {
 			 throw new RuntimeException(" Ce User existe deja");
 		 }
 		 
-		 connexionService.saveNewUser(user);
+		 // connexionService.saveNewUser(user);
 			 return connexionService.getUser(user.getIdentifiant(),user.getPassword());
 			
 		}
 	 
 	 @RequestMapping(value="/user/delete/{id}", method=RequestMethod.DELETE)
 		public void deleteUserById(@PathVariable int id){
-		 connexionService.deleteUser(id);		 
+
+		// connexionService.deleteUser(id);
 		}
 
 }

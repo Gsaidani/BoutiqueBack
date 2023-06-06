@@ -27,18 +27,20 @@ import com.example.demo.entities.Ventes;
 public class VenteService implements IVenteService {
 
 	
-	private VentesRepository ventesRepository;
+	// private VentesRepository ventesRepository;
 	
 	
-	@Autowired(required = true)
-	@Qualifier("venteService")
+	/*@Autowired(required = true)
+	// @Qualifier("venteService")
 	public void setVentesRepository(VentesRepository ventesRepository) {
-		this.ventesRepository = ventesRepository;
-	}
+
+		// this.ventesRepository = ventesRepository;
+	}*/
 
 	@Override
 	public Page<Ventes> getAllVentes(int idUser,int page, int size) {
-		Page<Ventes> listVentes=ventesRepository.findAllVentes(idUser,PageRequest.of(page, size) );
+		Page<Ventes> listVentes=null;
+				// ventesRepository.findAllVentes(idUser,PageRequest.of(page, size) );
 		if(listVentes==null){
 			throw new RuntimeException("ventes introuvables !");
 		}
@@ -47,7 +49,8 @@ public class VenteService implements IVenteService {
 	
 	@Override
 	public Integer getAllVentesByProduit(int idArticle) {
-		return ventesRepository.findAllVentesByArticle(idArticle);
+		return null;
+				// ventesRepository.findAllVentesByArticle(idArticle);
 		
 	
 	}
@@ -58,7 +61,8 @@ public class VenteService implements IVenteService {
 	
 	public Ventes modifyVente(int id, Ventes vente ){
 		vente.setId(id);
-		return ventesRepository.save(vente);
+		return null;
+				// ventesRepository.save(vente);
 	}
 	
 	 public Page<Ventes> getVentesByDate(
@@ -72,7 +76,8 @@ public class VenteService implements IVenteService {
 		 Date date1=Date.valueOf(debut);
 		 Date date2=Date.valueOf(fin);
 		 System.out.println("date1 : "+date1);
-			return ventesRepository.findVentesByDate(idUser,date1, date2, PageRequest.of(page, size));
+			return null;
+					//ventesRepository.findVentesByDate(idUser,date1, date2, PageRequest.of(page, size));
 		}
 
 	 public Ventes saveNewVente(Ventes vente, String dateVente){
@@ -86,12 +91,13 @@ public class VenteService implements IVenteService {
 		 vente.setDateVente(date);
 		 System.out.println("vente : "+vente);
 		 System.out.println("dateVente : "+date);
-		return ventesRepository.save(vente);
+		return null;
+				// ventesRepository.save(vente);
 	}
 	 
 	 public void deleteVente(int id){
 		 
-		ventesRepository.deleteVente(id);
+		// ventesRepository.deleteVente(id);
 	}
 
 

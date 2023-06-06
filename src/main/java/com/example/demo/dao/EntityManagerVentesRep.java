@@ -19,12 +19,12 @@ import com.example.demo.entities.Ventes;
 @org.springframework.stereotype.Repository
 @Transactional
 public class EntityManagerVentesRep implements Repository<Ventes,Long> {
-	@PersistenceContext
+/*	@PersistenceContext
 	EntityManager em;
 	
 	String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	
-	/*	
+	*//*
 	public List<Ventes> findVentesByDate(Date debut,Date fin){
 		List<Ventes> ventes = em
 			    .createNamedQuery("Ventes.byDate",Ventes.class)
@@ -34,7 +34,7 @@ public class EntityManagerVentesRep implements Repository<Ventes,Long> {
 		return ventes;
 	}
 
-	*/
+	*//*
 	public List<Ventes> findVentesByDate(Date debut,Date fin){
 		List<Ventes> ventes = em
 			    .createQuery("select v from Ventes v where v.date_vente <= :fin and v.date_vente >= :debut")
@@ -53,7 +53,7 @@ public class EntityManagerVentesRep implements Repository<Ventes,Long> {
 		em.persist(v);
 		return v;
 			    
-	}
+	}*/
 	
 	
 }

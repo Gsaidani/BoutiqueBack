@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 //public class LaBarakaBackSpringApplication implements CommandLineRunner {
 public class LaBarakaBackSpringApplication extends SpringBootServletInitializer  {
 	

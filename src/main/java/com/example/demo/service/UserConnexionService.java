@@ -21,11 +21,25 @@ import com.example.demo.entities.Ventes;
 	@Service
 	@Transactional
 	public class UserConnexionService implements IUserService {
-		@Autowired
+		@Override
+		public UserConnexion getUser(String identifiant, String password) {
+			return null;
+		}
+
+		@Override
+		public List<UserConnexion> getUserByMC(String mot) {
+			return null;
+		}
+
+		@Override
+		public UserConnexion findUserByIdentifiant(String identifiant) {
+			return null;
+		}
+	/*	@Autowired(required=true)
 		private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-		@Autowired
-		private UserConnexionRepository connexionRepository;		
+		@Autowired(required=true)
+		private UserConnexionRepository connexionRepository;
 		
 
 		public UserConnexion modifyVente(int id, UserConnexion user) {
@@ -71,7 +85,7 @@ import com.example.demo.entities.Ventes;
 		public UserConnexion findUserByIdentifiant(String identifiant) {
 			UserConnexion user = connexionRepository.findUserByIdentifiant(identifiant);
 			return user;
-		}
+		}*/
 
 		
 		
